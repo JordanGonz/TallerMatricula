@@ -16,7 +16,8 @@ https://docs-coro-net.translate.goog/featured/agent/install-tesseract-windows/?_
 ```bash
 pip install -r requirements.txt
 ```
-# CREAR ARCHICO .ENV Y PEGARLO
+# VARIABLES DE AMBIENTE
+- CREAR ARCHICO .ENV ER LA RAIZ DEL PROYECTO 
 ```bash
 # .env
 OPENAI_API_KEY=
