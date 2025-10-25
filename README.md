@@ -12,7 +12,7 @@ https://docs-coro-net.translate.goog/featured/agent/install-tesseract-windows/?_
 ```bash
 .\venv\Scripts\Activate.ps1
 ```
-# INSTALAR LAS LIBRERIAS 
+# INSTALAR LIBRERIAS 
 ```bash
 pip install -r requirements.txt
 ```
