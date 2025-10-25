@@ -8,7 +8,7 @@ TESSERACT-OCR para obtener el texto plano una imagen
 https://docs-coro-net.translate.goog/featured/agent/install-tesseract-windows/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
 ```
 
-# ENTAR AL ENTORNO VITUAL 
+# EJECUTAR ENTORNO VIRTUAL 
 ```bash
 .\venv\Scripts\Activate.ps1
 ```
