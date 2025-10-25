@@ -16,9 +16,9 @@ pip install -r requirements.txt
 OPENAI_API_KEY=
 ```
 # INTEGRANTES
-## - JORDAN VILLAO
-## - ANTHONY FALQUEZ
-## - DIEGO 
+- JORDAN VILLAO
+- ANTHONY FALQUEZ
+- DIEGO CEDEÑO
 
 <img width="1852" height="855" alt="image" src="https://github.com/user-attachments/assets/64eba1f9-40d5-4cd1-b83d-cd24c0b85355" />
 
