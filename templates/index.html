@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Lector de Matrículas AI 🚘</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='car.svg') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+
+<body>
+  <!-- Fondo animado -->
+  <div class="background">
+    <div class="gradient-circle"></div>
+    <div class="gradient-circle delay"></div>
+  </div>
+
+  <div class="container">
+    <!-- Encabezado -->
+    <header class="header">
+      <img src="{{ url_for('static', filename='camera.svg') }}" class="logo" alt="Camera logo">
+      <h1 class="title">Lector de Matrículas Inteligente</h1>
+      <p class="subtitle">Sube una foto y deja que la IA detecte la matrícula automáticamente 🚗</p>
+    </header>
+
+    <!-- Mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-zone">
+          {% for category, message in messages %}
+            <div class="flash flash--{{category}}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Formulario -->
+    <form class="card" action="{{ url_for('guardar') }}" method="POST" enctype="multipart/form-data">
+      <label class="file-label" id="previewLabel">
+        <img src="{{ url_for('static', filename='upload.svg') }}" class="icon" id="previewIcon" alt="Subir icono">
+        <span id="previewText">Selecciona una imagen de matrícula</span>
+        <input id="imagen" name="imagen" type="file" accept="image/*" required onchange="previewImage(event)">
+      </label>
+
+      <img id="previewImg" class="preview" src="" alt="Vista previa">
+
+      <input name="propietario" type="text" placeholder="👤 Propietario (opcional)">
+      <input name="tipo_vehiculo" type="text" placeholder="🚘 Tipo de vehículo">
+      <input name="observacion" type="text" placeholder="📝 Observación (color, estado...)">
+
+      <div class="buttons">
+        <button class="btn primary" type="submit">
+          <img src="{{ url_for('static', filename='car.svg') }}" alt="Car icon" style="width:20px;vertical-align:middle;margin-right:6px;">
+          Guardar Matrícula
+        </button>
+        <a class="btn secondary" href="{{ url_for('registros') }}">
+          📜 Ver Registros
+        </a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

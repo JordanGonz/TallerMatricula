@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Registros de Matrículas 🚘</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='car.svg') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="{{ url_for('static', filename='logo.svg') }}" class="logo"
+          alt="Logo neón">
+        <h1 class="title">📋 Registros de Matrículas</h1>
+        <p class="subtitle">Consulta, visualiza y elimina los registros
+          guardados</p>
+      </header>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="flash-zone">
+        {% for category, message in messages %}
+        <div class="flash flash--{{category}}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Imagen</th>
+              <th>Matrícula</th>
+              <th>Propietario</th>
+              <th>Tipo</th>
+              <th>Obs.</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in registros %}
+            <tr>
+              <td>{{ r.id }}</td>
+              <td>
+               <img src="{{ url_for('uploaded_file', filename=r.imagen) }}" class="thumb" alt="Foto matrícula">
+              </td>
+              <td>{{ r.matricula }}</td>
+              <td>{{ r.propietario }}</td>
+              <td>{{ r.tipo_vehiculo }}</td>
+              <td>{{ r.observacion }}</td>
+              <td>
+                <a href="{{ url_for('eliminar', id=r.id) }}"
+                  title="Eliminar registro">
+                  <img src="{{ url_for('static', filename='delete.svg') }}"
+                    alt="Eliminar" style="width:22px;">
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="buttons" style="margin-top:20px;">
+        <a class="btn secondary" href="{{ url_for('index') }}">⬅ Volver</a>
+        <a class="btn primary" href="{{ url_for('descargar') }}">
+          <img src="{{ url_for('static', filename='upload.svg') }}"
+            alt="Descargar"
+            style="width:20px;vertical-align:middle;margin-right:5px;">
+          Descargar CSV
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

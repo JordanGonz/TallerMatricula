@@ -1,0 +1,62 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# --- Entorno virtual ---
+venv/
+.env/
+env/
+ENV/
+.venv/
+
+# --- Configuración sensible ---
+*.env
+config.json
+instance/
+*.secret
+secret_key.txt
+
+# --- Archivos temporales ---
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Archivos del IDE ---
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# --- Flask / Cache ---
+*.db
+*.sqlite3
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Subidas y datos ---
+uploads/
+data/
+
+# --- Archivos específicos del proyecto ---
+*.csv
+*.xlsx
+*.json
+
+# --- Sistema operativo ---
+ehthumbs.db
+Icon?
+desktop.ini
